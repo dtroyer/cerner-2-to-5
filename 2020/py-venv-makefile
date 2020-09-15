@@ -1,0 +1,34 @@
+# Python virtual environments
+# Manage app-specific Python virtual environments
+
+# Put this Makefile in ~/lib and run ``make osc`` to install
+# an OpenStackClient venv.
+
+# Adjust PY_VER to be more specific if needed, i.e. PY_VER=python3.8
+
+SHELL=/bin/bash
+
+# Always install these packages
+PKGS=pip
+
+PY_VER=python3
+VENV_CMD=$(PY_VER) -m venv
+
+venv:
+	[ -n "$(VENV_DIR)" ] || \
+		( echo "+++ Usage: make venv VENV_DIR=<path>" ; false )
+	$(VENV_CMD) $(VENV_DIR)
+	$(VENV_DIR)/bin/pip install -U $(PKGS)
+
+# Bootstrap an Ansible environment
+.PHONY ansible
+ansible: VENV_DIR=ansible
+ansible: venv
+	$@/bin/pip install python-openstackclient
+
+# Install OpenStackClient
+# alias .osc='source $HOME/lib/osc/bin/activate'
+.PHONY osc
+osc: VENV_DIR=osc
+osc: venv
+	$@/bin/pip install python-openstackclient
