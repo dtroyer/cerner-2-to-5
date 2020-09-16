@@ -29,7 +29,7 @@ GIT_ARGS="$GIT_DIFF --oneline --cherry-pick --no-merges"
 
 for i in $@; do
     (
-        cd $repo; \
+        cd $i; \
         git log ${GIT_ARGS} ${LEFT_BRANCH} ${RIGHT_BRANCH}; \
     )
 done
