@@ -6,6 +6,7 @@
 # Tools that do not recognize the clouds.yaml file supported by
 # OpenStack SDK and OpenStackClient can still use the file to set
 # environment variables.
+# https://docs.openstack.org/python-openstackclient/latest/configuration/index.html
 
 # Best used as an alias, due to a bug in bash 3.2 the invocation can not
 # use simple process redirection, so on MacOS:
