@@ -32,3 +32,5 @@ ansible: venv
 osc: VENV_DIR=osc
 osc: venv
 	$@/bin/pip install python-openstackclient
+
+# cerner_2^5_2020

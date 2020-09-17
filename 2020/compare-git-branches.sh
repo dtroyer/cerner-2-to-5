@@ -33,3 +33,5 @@ for i in $@; do
         git log ${GIT_ARGS} ${LEFT_BRANCH} ${RIGHT_BRANCH}; \
     )
 done
+
+# cerner_2^5_2020

@@ -45,3 +45,5 @@ for a in auth_attrs:
 for a in attrs:
     if a in cloud.config:
         print("%s=%s" % ("OS_" + a.upper(), cloud.config[a]))
+
+# cerner_2^5_2020
