@@ -1,0 +1,39 @@
+# iterm2.yaml - Ansible playbook to configure iTerm2
+#
+# Requires role tkimball83.iterm2:
+# ansible-galaxy install tkimball83.iterm2
+#
+# ansible-playbook iterm2.yaml
+
+---
+- hosts: localhost
+  connection: localhost
+
+  # Configure iTerm2
+  vars:
+    iterm2_defaults:
+      # General -> Closing
+      - name: PromptOnQuit
+        type: bool
+        value: false
+      # Appearance -> Windows
+      - name: UseBorder
+        type: bool
+        value: true
+      # Appearance -> Tabs
+      - name: HideTab
+        type: bool
+        value: false
+      # Pointer -> General
+      - name: ThreeFingerEmulates
+        type: bool
+        value: true
+      - name: FocusFollowsMouse
+        type: bool
+        value: true
+
+  roles:
+    - role: tkimball83.iterm2
+      tags: ['iterm']
+
+# cerner_2^5_2020
